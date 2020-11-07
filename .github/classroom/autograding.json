@@ -35,7 +35,7 @@
       "setup": "javac *.java",
       "run": "java -cp . Main",
       "input": "4\r\n0 3\r\n0 2 \r\n1 1\r\n2 4",
-      "output": "5",
+      "output": "4",
       "comparison": "included",
       "timeout": 10,
       "points": 2
