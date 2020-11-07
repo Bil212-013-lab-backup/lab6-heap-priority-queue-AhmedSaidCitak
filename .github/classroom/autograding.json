@@ -1,0 +1,54 @@
+{
+  "tests": [
+    {
+      "name": "test1",
+      "setup": "javac *.java",
+      "run": "java -cp . Main",
+      "input": "3 \r\n0 3\r\n1 9 \r\n2 5",
+      "output": "8",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "test2",
+      "setup": "javac *.java",
+      "run": "java -cp . Main",
+      "input": "4\r\n0 2\r\n1 11 \r\n2 4\r\n3 12",
+      "output": "12",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "test3",
+      "setup": "javac *.java",
+      "run": "java -cp . Main",
+      "input": "3 \r\n0 3\r\n1 9 \r\n2 6",
+      "output": "9",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "test4",
+      "setup": "javac *.java",
+      "run": "java -cp . Main",
+      "input": "4\r\n0 3\r\n0 2 \r\n1 1\r\n2 4",
+      "output": "5",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "test5",
+      "setup": "javac *.java",
+      "run": "java -cp . Main",
+      "input": "3\r\n1 4 \r\n2 5\r\n2 1",
+      "output": "5",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    }
+  ]
+}
