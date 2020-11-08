@@ -14,19 +14,15 @@ public class PriorityQueue {
 	public Node insert(int key, int value) {
 		Node newNode = new Node(key, value);
 		int both = key + value;
-		if(pQueue[1] == null) {
-			pQueue[1] = newNode;
-			lastNode++;
+		
+		int i = lastNode+1;
+		while(i!=1 && pQueue[i/2].getBoth() > both) {
+			pQueue[i] = pQueue[i/2];
+			i = i/2;
 		}
-		else {
-			int i = lastNode+1;
-			while(i!=1 && pQueue[i/2].getBoth() > both) {
-				pQueue[i] = pQueue[i/2];
-				i = i/2;
-			}
-			pQueue[i] = newNode;
-			lastNode++;
-		}
+		pQueue[i] = newNode;
+		lastNode++;
+		
 		return newNode;
 	}
 	
@@ -35,7 +31,7 @@ public class PriorityQueue {
 		Node tmp = pQueue[lastNode];
 		pQueue[lastNode] = null;
 		int i=1, ci=2;
-		while(i<=lastNode) {
+		while(i<lastNode && ci+1<lastNode) {
 			if(pQueue[ci].getValue() > pQueue[ci+1].getValue())
 				ci++;
 			if(tmp.getValue() < pQueue[ci].getValue())
@@ -49,14 +45,41 @@ public class PriorityQueue {
 		return newNode;
 	}
 	
+	public void print() {
+		for(int i=1; i<=lastNode; i++) {
+			System.out.println(pQueue[i].getValue());
+		}
+	}
+	
 	public void calculate() {
 		int sum = 0;
+		int temp = 0;
+		int point = 0;
+		Node newNode;
 		for(int i=1; i<=size; i++) {
-			for(int j=1; j<=i; j++) {
-				sum += pQueue[j].getValue();
+			newNode = removeMin();
+			sum += newNode.getValue();
+			if(i==1)
+				point += newNode.getBoth();
+			else {
+				sum += point - newNode.getKey();
+				point += newNode.getValue();
 			}
-			sum -= pQueue[i].getKey();
+//			System.out.println(sum);
 		}
 		System.out.println(sum/size);
 	}
 }
+
+
+/*
+   for(int i=1; i<=size; i++) {
+			newNode = removeMin();
+			sum += newNode.getValue()+temp;
+			temp += newNode.getValue(); 
+//			point += newNode.getBoth();
+			if(i!=1)
+				sum -= newNode.getKey();
+			System.out.println(sum);
+		}
+*/
