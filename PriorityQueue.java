@@ -65,21 +65,7 @@ public class PriorityQueue {
 				sum += point - newNode.getKey();
 				point += newNode.getValue();
 			}
-//			System.out.println(sum);
 		}
 		System.out.println(sum/size);
 	}
 }
-
-
-/*
-   for(int i=1; i<=size; i++) {
-			newNode = removeMin();
-			sum += newNode.getValue()+temp;
-			temp += newNode.getValue(); 
-//			point += newNode.getBoth();
-			if(i!=1)
-				sum -= newNode.getKey();
-			System.out.println(sum);
-		}
-*/

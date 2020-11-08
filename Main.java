@@ -8,15 +8,9 @@ public class Main {
 		Scanner keyboard = new Scanner(System.in);
 		int size = keyboard.nextInt();
 		PriorityQueue pq = new PriorityQueue(size);
-//		System.out.println();
-//		System.out.println(size);
-		
 		for(int i=0; i<size; i++) {
 			pq.insert(keyboard.nextInt(), keyboard.nextInt());
 		}
-		
-//		pq.print();
 		pq.calculate();
-		
 	}
 }
